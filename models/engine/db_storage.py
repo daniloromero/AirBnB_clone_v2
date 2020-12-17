@@ -13,7 +13,8 @@ from models.amenity import Amenity
 from models.review import Review
 from os import getenv
 classes = {
-    'State': State, 'City': City
+    'State': State, 'City': City, 'User': User, 'Place': Place,
+    'Review': Review
 }
 
 
