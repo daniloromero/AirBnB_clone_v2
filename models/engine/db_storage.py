@@ -41,13 +41,13 @@ class DBStorage:
     def all(self, cls=None):
         """Method to get all objects from database by class"""
         all_obj = {}
-        if cls is not None: # se pasan argumentos al all (all state)
+        if cls is not None:  # se pasan argumentos al all (all state)
             """ do query if class exist """
             x = self.__session.query(classes[cls]).all()
             for i in x:
                 key = cls + '.' + i.id
                 all_obj[key] = i
-        else: # se pasa el all solo (imprime todo)
+        else:  # se pasa el all solo (imprime todo)
             for k, v in classes.items():
                 x = self.__session.query(v).all()
                 for i in x:

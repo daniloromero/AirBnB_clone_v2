@@ -224,7 +224,7 @@ class HBNBCommand(cmd.Cmd):
                 return
             for k, v in storage.all(args).items():
                 print_list.append(str(v))
-        else: # imprime todo
+        else:  # imprime todo
             for k, v in storage.all().items():
                 print_list.append(str(v))
 
