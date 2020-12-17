@@ -139,9 +139,8 @@ class HBNBCommand(cmd.Cmd):
             if type(val) is str:
                 val = val.replace("_", " ")
             setattr(new_instance, x[0], val)
-        storage.save()
+        new_instance.save()
         print(new_instance.id)
-        storage.save()
 
     def help_create(self):
         """ Help information for the create method """
@@ -217,17 +216,16 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, args):
         """ Shows all objects, or all objects of a class"""
         print_list = []
-
+        """ imprime lo que le pasamos """
         if args:
-            args = args.split(' ')[0]  # remove possible trailing args
+            args = args.split(' ')[0]  # args = 'state'
             if args not in HBNBCommand.classes:
                 print("** class doesn't exist **")
                 return
-            for k, v in storage._FileStorage__objects.items():
-                if k.split('.')[0] == args:
-                    print_list.append(str(v))
-        else:
-            for k, v in storage._FileStorage__objects.items():
+            for k, v in storage.all(args).items():
+                print_list.append(str(v))
+        else: # imprime todo
+            for k, v in storage.all().items():
                 print_list.append(str(v))
 
         print(print_list)
