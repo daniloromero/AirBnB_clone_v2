@@ -25,7 +25,7 @@ def C_is_fun(text):
 @app.route('/python', strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
 def Python_is(text='is_cool'):
-    """display “Python ”, followed by the value of the text variable"""
+    """display Python , followed by the value of the text variable"""
     return "Python " + text.replace('_', ' ')
 
 if __name__ == "__main__":
